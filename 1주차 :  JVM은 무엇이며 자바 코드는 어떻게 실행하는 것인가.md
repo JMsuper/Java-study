@@ -90,10 +90,31 @@ Byte 코드는 C언어로 작성된 `.c`파일을 컴파일 했을 때 생성되
 Byte 코드또한 Instruction을 가지고 있다. 특이점은 레지스터를 사용하지 않고 스택에 변수값을 저장한다는 것이다.
 
 ## JVM 구성 요소
-<img src="https://github.com/JMsuper/whiteship-live-study-java/blob/main/img/JVM%20%EA%B5%AC%EC%A1%B0.PNG" witdh=800>
+<img align="center" src="https://github.com/JMsuper/whiteship-live-study-java/blob/main/img/JVM%20%EA%B5%AC%EC%A1%B0.PNG" witdh=700>
+JVM의 구성요소는 다음과 같다.
+`ClassLoader`,`Method Area`,`Heap`,`JVM language Stacks`,`PC Register`,`Native Method Stacks`,`Native Method interface`,`Native Method Libraries`
+###### ClassLoader
+클래스 로더는 클래스 파일들을 로딩하는데 사용되는 서브시스템이다. 클래스 로더는 로딩, 링킹, 초기화라는 3가지 주요한 기능을 수행한다.
+- 로딩 : `.class`파일을 읽고 내용에 맞는 binary 데이터를 생성한 뒤 JVM의 Method Area에 저장한다.
+  로딩이 끝나면, 해당 클래스 타입의 class 객체를 생성해서 heap 영역에 저장한다.
+- 링킹 : 링킹은 `Verify->Prepare->Resolve`의 3단계로 이뤄진다.
+  - Verify : 혹시라도 바이트 코드가 수정되었을 수 있기 때문에, `.class`파일 형식이 유효한지 확인한다.
+  - Prepare : 클래스 변수(static 변수)와 기본값에 필요한 메모리를 준비하는 과정이다.
+  - Resolve : 사용하는 환경에 따라 동작 유무가 정해지는 Optional한 과정이다. 이 과정에서는
+    심볼릭 메모리 래퍼런스를 메소드 영역에 있는 실제 래퍼런스 혹은 힙에 있는 인스턴스를 가리키도록
+    하는 작업을 한다.
+- 초기화 : 링킹의 Prepare단계에서 확보한 메모리 영역에 클래스의 static 값들을 할당한다.
+###### Method Area
+메소드 영역은 클래스, 변수, 메소드, static 변수, 상수 정보 등이 저장되는 영역이며 JVM의 모든 쓰레드가 공유한다.
+메소드 영역은 JVM이 시작될 때 생성된다. 논리적으로는 힙의 일부이지만, 간단한 구현체의 경우 GC에게 수집되지 않도록 설정할 수 있다.
+###### Heap
+힙은 모든 클래스 인스턴스와 배열에 대한 메모리가 할당되는 런타임 데이터 영역이며, JVM의 모든 쓰레드가 공유한다. 메소드 영역과 마찬가지로 JVM이 시작될 때 생성되며, garbage collection이라는 자동 스토리지 관리 시스템에 의해 관리된다. 그렇기 때문에 객체는 명시적으로 해제되지 않는다. JVM은 특정 gc를 요구하지 않으며 구현자에 따라서 스토리지 관리 기술을 선택할 수 있다. 
+###### JVM language Stacks
+JVM 쓰레드는 생성과 동시에 개개인의 JVM 스택을 할당 받는다. JVM 스택은 스택 프레임(메소드가 수행될 때 생성되는 저장공간)을 저장한다. 지역 변수와 부분적인 결과가 저장되며 메소드 호출과 반환의 역할을 수행한다. JVM 스택은 `push`,`pop`을 제외하고 직접 조작되지 않기 때문에, 스택 프레임이 힙 영역에 할당될 수도 있다.
+###### PC Register
 
 
-## JIT 컴파이러란 무엇이며 어떻게 동작하는지
+## JIT 컴파러란 무엇이며 어떻게 동작하는지
 
 ## 컴파일하는 방법
 컴파일 명령어 구조 : `javac <option> <source files> <args>`
@@ -123,6 +144,8 @@ java 명령은 패키지의 parent 디렉토리 위치에서 실행하되, 실�
 
 ### 참고자료
 - JVM이란 무엇인가? : https://asfirstalways.tistory.com/158
+- JVM 구조 : https://www.guru99.com/java-virtual-machine-jvm.html
+- JVM 클래스 로더 : https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-5.html
 - 김김의 JVM Specification : https://www.youtube.com/watch?v=6reapO0gLPs
 - 무민의 JVM Stack & Heap : https://www.youtube.com/watch?v=UzaGOXKVhwU
 - JVM 위키백과 : https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EA%B0%80%EC%83%81_%EB%A8%B8%EC%8B%A0
