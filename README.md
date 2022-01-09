@@ -1,7 +1,7 @@
 # 자바 라이브 스터디
 백기선님 스터디 링크 : https://github.com/whiteship/live-study/issues?q=is%3Aissue+is%3Aclosed<br>
 
-이 공간은 백기선님의 java-live-study를 정리하는 목적으로 작성되었습니다.<br>
+이 공간은 백기선님의 `java-live-study`를 정리하는 목적으로 작성되었습니다.<br>
 스터디가 종료된 이후 해당 스터디의 과정에 동참하고 싶어 개인적으로 스터디를 진행합니다.
 
 #### 스터디 과정
