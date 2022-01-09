@@ -86,12 +86,12 @@ public static main([Ljava/lang/String;)V
     MAXSTACK = 2
     MAXLOCALS = 4
 ```
-Byte 코드는 C언어로 작성된 `.c`파일을 컴파일 했을 때 생성되는 `.obj`파일과 유사하다.
-Byte 코드또한 Instruction을 가지고 있다. 특이점은 레지스터를 사용하지 않고 스택에 변수값을 저장한다는 것이다.
+Byte 코드는 C언어로 작성된 `.c`파일을 컴파일 했을 때 생성되는 `.obj`파일과 유사하다.<br>
+Byte 코드또한 Instruction을 가지고 있다. 특이점은 레지스터를 사용하지 않고 스택에 변수값을 저장한다는 것이다.<br>
 
 ## JVM 구성 요소
-<img align="center" src="https://github.com/JMsuper/whiteship-live-study-java/blob/main/img/JVM%20%EA%B5%AC%EC%A1%B0.PNG" witdh=700>
-JVM의 구성요소는 다음과 같다.
+<img align="center" src="https://github.com/JMsuper/whiteship-live-study-java/blob/main/img/JVM%20%EA%B5%AC%EC%A1%B0.PNG" witdh=600><br>
+JVM의 구성요소는 다음과 같다.<br>
 `ClassLoader`,`Method Area`,`Heap`,`JVM language Stacks`,`PC Register`,`Native Method Stacks`,`Native Method interface`,`Native Method Libraries`
 ###### ClassLoader
 클래스 로더는 클래스 파일들을 로딩하는데 사용되는 서브시스템이다. 클래스 로더는 로딩, 링킹, 초기화라는 3가지 주요한 기능을 수행한다.
