@@ -92,7 +92,7 @@ Byte 코드또한 Instruction을 가지고 있다. 특이점은 레지스터를 
 ## JVM 구성 요소
 <img align="center" src="https://github.com/JMsuper/whiteship-live-study-java/blob/main/img/JVM%20%EA%B5%AC%EC%A1%B0.PNG" witdh=600><br>
 JVM의 구성요소는 다음과 같다.<br>
-`ClassLoader`,`Method Area`,`Heap`,`JVM language Stacks`,`PC Register`,`Native Method Stacks`,`Native Method interface`,`Native Method Libraries`
+`ClassLoader`,`Method Area`,`Heap`,`JVM language Stacks`,`PC Register`,`Native Method Stacks`,`Excution Engine`,`Native Method interface`,`Native Method Libraries`
 ###### ClassLoader
 클래스 로더는 클래스 파일들을 로딩하는데 사용되는 서브시스템이다. 클래스 로더는 로딩, 링킹, 초기화라는 3가지 주요한 기능을 수행한다.
 - 로딩 : `.class`파일을 읽고 내용에 맞는 binary 데이터를 생성한 뒤 JVM의 Method Area에 저장한다.
@@ -112,6 +112,9 @@ JVM의 구성요소는 다음과 같다.<br>
 ###### JVM language Stacks
 JVM 쓰레드는 생성과 동시에 개개인의 JVM 스택을 할당 받는다. JVM 스택은 스택 프레임(메소드가 수행될 때 생성되는 저장공간)을 저장한다. 지역 변수와 부분적인 결과가 저장되며 메소드 호출과 반환의 역할을 수행한다. JVM 스택은 `push`,`pop`을 제외하고 직접 조작되지 않기 때문에, 스택 프레임이 힙 영역에 할당될 수도 있다.
 ###### PC Register
+JVM은 한번에 많은 스레드가 실행될 수 있도록 지원한다. 각 JVM thread는 자체 PC 레지스터를 갖는다. 스레드가 실행하는 메소드가 네이티브(c or c++ or assembly)가 아닌 경우 pc 레지스터는 현재 실행 중인 JVM 명령의 주소를 포함한다. 만약, 스레드에 의해 현재 실행 중인 메소드가 네이티브인 경우 JVM의 pc 레지스터는 undefined상태가 된다.
+###### Native Method Stacks
+JVM의 구현체는 네이티브 메소드를 지원하는 스택을 갖는다. 네이티브 메소드는 c or c++ or assembly로 작성된 메소드를 말한다.
 
 
 ## JIT 컴파러란 무엇이며 어떻게 동작하는지
