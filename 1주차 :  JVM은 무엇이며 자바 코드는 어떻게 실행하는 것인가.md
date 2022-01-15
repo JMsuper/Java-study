@@ -115,9 +115,12 @@ JVM 쓰레드는 생성과 동시에 개개인의 JVM 스택을 할당 받는다
 JVM은 한번에 많은 스레드가 실행될 수 있도록 지원한다. 각 JVM thread는 자체 PC 레지스터를 갖는다. 스레드가 실행하는 메소드가 네이티브(c or c++ or assembly)가 아닌 경우 pc 레지스터는 현재 실행 중인 JVM 명령의 주소를 포함한다. 만약, 스레드에 의해 현재 실행 중인 메소드가 네이티브인 경우 JVM의 pc 레지스터는 undefined상태가 된다.
 ###### Native Method Stacks
 JVM의 구현체는 네이티브 메소드를 지원하는 스택을 갖는다. 네이티브 메소드는 c or c++ or assembly로 작성된 메소드를 말한다.
-
+###### Excution engine
+Excution engine은 Runtime Data Areas에 있는 데이터들을 가져와 실제 실행시키는 주체이다. JVM에 존재하는 각각의 스레드는 자신만의 고유한 Excution engine을 가지고 있다. Excution engine은 클래스 로더에 의해 적재된 바이트코드를 머신코드로 변환하는 작업을 수행한다.
+Excution engine은 바이트코드를 한 줄씩 읽어서 머신코드로 변환시키는 Interpreter방식을 수행한다. 이 방식의 문제는 똑같은 메소드가 반복되더라도 매번 해석과정을 수행한다는 점이다. 이는 성능을 저하시킨다. 이를 해결하기 위해 JTI 컴파일러를 사용한다.
 
 ## JIT 컴파러란 무엇이며 어떻게 동작하는지
+JIT 컴파일러는 interpreter 방식의 단점을 보완한다. 런타임에 바이트코드를 머신코드로 컴파일하고, excution engine은 interperter 수행 중 해당 메소드를 만나면 해당 바이트코드를 해석하지 않고 JIT컴파일러가 컴파일한 머신코드를 수행한다. 그렇다면 애초에 모든 바이트코드를 JIT 컴파일러를 이용해 컴파일하는 것이 좋지 않을까? 그렇지 않다. 왜냐하면 JIT 컴파일러를 이용한 컴파일 또한 프로세서와 메모리를 사용하기 때문에 start time performance를 저하시킬 수 있다. 따라서 JIT 컴파일러는 메소드들이 일정 기준 사용되면 해당 메소드를 컴파일 하는 방식을 수행한다. 어떤 메소드는 빠르게 컴파일될 수 있고, 어떤 메소드는 뒤늦게 컴파일 될 수 있으며, 어떤 메소드는 컴파일 되지 않을 수도 있다.
 
 ## 컴파일하는 방법
 컴파일 명령어 구조 : `javac <option> <source files> <args>`
@@ -132,18 +135,24 @@ EX) `javac -classpath ./* TestClass.java` (컴파일)
 3. `클래스명.class` 바이트코드 파일 생성
 4. `java 클래스명.class` 바이트코드 실행
 
+###### javac option
+- `-g` : 디버깅 정보를 생성한다.
+- `-nowarn` : warnings 정보를 생성하지 않는다.
+- `-verbose` : 어느 부분을 컴파일하는지 메시지를 출력한다.
+- `-classpath <path>` : 컴파일에 필요한 클래스파일의 위치정보를 제공한다.
+- `-d <directory>` : 클래스파일이 생성될 디렉토리의 위치를 지정한다.
+
 
 ## 실행하는 방법
-EX) `java example.TestClass` (실행 명령어)
-java 명령은 패키지의 parent 디렉토리 위치에서 실행하되, 실행할 클래스 파일의 이름은
-`패키지명.클래스파일명`으로 지정해야 한다.
-
-
+EX) `java example.TestClass` (실행 명령어)<br>
+java 명령은 패키지의 parent 디렉토리 위치에서 실행하되, 실행할 클래스 파일의 이름은<br>
+`패키지명.클래스파일명`으로 지정해야 한다.<br>
 
 
 ## JDK와 JRE의 차이
-
-
+간단하게 말하면 JRE(Java Runtime Environment)는 java파일을 실행하기위한 환경을 말하며, JDK는 JRE를 포함하며 java 개발자를 위한 프로그램들을 포함한다.
+Java 11부터 Oracle은 JRE를 제공하지 않기로 했다. 오직 JDK만을 제공한다. 애초에 JDK가 JRE를 포함하고 있기 때문에 굳이 JRE를 추가로 제공하여 일을 늘리지 않으려는 의도로 보여진다.(백기선님의 강의 참고)
+그러나 Oracle에서만 JRE를 제공하지 않을 뿐이며 다른 vendor  JRE를 제공하는 곳도 있다.
 
 ### 참고자료
 - JVM이란 무엇인가? : https://asfirstalways.tistory.com/158
@@ -154,3 +163,5 @@ java 명령은 패키지의 parent 디렉토리 위치에서 실행하되, 실�
 - JVM 위키백과 : https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EA%B0%80%EC%83%81_%EB%A8%B8%EC%8B%A0
 - 자바컴파일 - javac : https://suzxc2468.tistory.com/193
 - 자바 바이트 코드 : http://www.tcpschool.com/java/java_intro_programming
+- JVM Excution Engine : https://www.geeksforgeeks.org/execution-engine-in-java/
+- JIT 컴파일러 : https://www.ibm.com/docs/en/sdk-java-technology/8?topic=reference-jit-compiler
