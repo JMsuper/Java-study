@@ -9,7 +9,7 @@
 - 2주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/2%EC%A3%BC%EC%B0%A8%20:%20%EC%9E%90%EB%B0%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85%2C%20%EB%B3%80%EC%88%98%20%EA%B7%B8%EB%A6%AC%EA%B3%A0%20%EB%B0%B0%EC%97%B4.md">자바 데이터 타입, 변수 그리고 배열</a>
 - 3주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/3%EC%A3%BC%EC%B0%A8%20:%20%EC%97%B0%EC%82%B0%EC%9E%90.md">연산자</a>
 - 4주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/4%EC%A3%BC%EC%B0%A8%20:%20%EC%A0%9C%EC%96%B4%EB%AC%B8.md">제어문</a>
-- 5주차 : 클래스
+- 5주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/5%EC%A3%BC%EC%B0%A8%20:%20%ED%81%B4%EB%9E%98%EC%8A%A4.md">클래스</a>
 - 6주차 : 상속
 - 7주차 : 패키지
 - 8주차 : 인터페이스
