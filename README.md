@@ -10,7 +10,7 @@
 - 3주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/3%EC%A3%BC%EC%B0%A8%20:%20%EC%97%B0%EC%82%B0%EC%9E%90.md">연산자</a>
 - 4주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/4%EC%A3%BC%EC%B0%A8%20:%20%EC%A0%9C%EC%96%B4%EB%AC%B8.md">제어문</a>
 - 5주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/5%EC%A3%BC%EC%B0%A8%20:%20%ED%81%B4%EB%9E%98%EC%8A%A4.md">클래스</a>
-- 6주차 : 상속
+- 6주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/6%EC%A3%BC%EC%B0%A8%20:%20%EC%83%81%EC%86%8D.md">상속</a>
 - 7주차 : 패키지
 - 8주차 : 인터페이스
 - 9주차 : 예외 처리
