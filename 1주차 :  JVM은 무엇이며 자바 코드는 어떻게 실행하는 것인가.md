@@ -22,8 +22,8 @@ JVM이 필요한 이유는 `"Write Once, Run Anywhere"`이라는 JAVA의 목표�
 JVM이 OS에 dependent함으로서, Java 프로그램은 한번의 개발을 통해 JVM이 설치된 모든 OS에서 실행가능해 진 것이다.<br>
 <br>
 JVM은 스택기반의 가상머신이다. JVM은 레지스터를 사용하지 않는다. 모든 CPU가 동일한 레지스터 구성을 가지고 있지는 않다. 만약 JVM이 레지스터를 사용한다면,
-JVM은 원래도 OS에 independent하지만, 더더욱 independent해질 것이다. 왜냐하면 각 CPU의 레지스터 구성에 맞게 JVM이 개발되어야 하기 때문이다.
-레지스터를 사용하지 않고, 스택으로 레지스터를 대신함으로써 CPU에 덜 independent해질 수 있다.<br>
+JVM은 원래도 OS에 dependent하지만, 더더욱 dependent해질 것이다. 왜냐하면 각 CPU의 레지스터 구성에 맞게 JVM이 개발되어야 하기 때문이다.
+레지스터를 사용하지 않고, 스택으로 레지스터를 대신함으로써 CPU에 덜 dependent해질 수 있다.<br>
 
 ##### JVM의 특성
 - 스택 기반의 가상 머신
