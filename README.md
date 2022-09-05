@@ -11,7 +11,7 @@
 - 4주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/4%EC%A3%BC%EC%B0%A8%20:%20%EC%A0%9C%EC%96%B4%EB%AC%B8.md">제어문</a>
 - 5주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/5%EC%A3%BC%EC%B0%A8%20:%20%ED%81%B4%EB%9E%98%EC%8A%A4.md">클래스</a>
 - 6주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/6%EC%A3%BC%EC%B0%A8%20:%20%EC%83%81%EC%86%8D.md">상속</a>
-- 7주차 : 패키지
+- 7주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/7%EC%A3%BC%EC%B0%A8%20:%20%ED%8C%A8%ED%82%A4%EC%A7%80.md">패키지</a>
 - 8주차 : 인터페이스
 - 9주차 : 예외 처리
 - 10주차 : 멀티쓰레드 프로그래밍
