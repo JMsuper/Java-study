@@ -13,7 +13,7 @@
 - 6주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/6%EC%A3%BC%EC%B0%A8%20:%20%EC%83%81%EC%86%8D.md">상속</a>
 - 7주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/7%EC%A3%BC%EC%B0%A8%20:%20%ED%8C%A8%ED%82%A4%EC%A7%80.md">패키지</a>
 - 8주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/8%EC%A3%BC%EC%B0%A8%20:%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4.md">인터페이스</a>
-- 9주차 : 예외 처리
+- 9주차 : <a href="https://github.com/JMsuper/whiteship-live-study-java/blob/main/9%EC%A3%BC%EC%B0%A8%20:%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md">예외 처리</a>
 - 10주차 : 멀티쓰레드 프로그래밍
 - 11주차 : Enum
 - 12주차 : 애노테이션
