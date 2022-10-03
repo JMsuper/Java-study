@@ -10,5 +10,6 @@ public class BoxMain {
 
         BoxGeneric<Integer> boxGeneric = new BoxGeneric<>();
         boxGeneric.setElement(value);
+        Integer object2 = boxGeneric.getElement();
     }
 }
